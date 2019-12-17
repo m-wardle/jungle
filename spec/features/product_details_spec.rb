@@ -24,8 +24,9 @@ RSpec.feature "ProductDetails", type: :feature, js: true do
     # DEBUG / VERIFY
     expect(page).to have_css 'article.product', count: 10
 
-    find('header h4', match: :first).click
+    find('article.product header h4', match: :first).click
     sleep 1
-    save_screenshot
+
+    expect(page).to have_css '.product-detail'
   end
 end
